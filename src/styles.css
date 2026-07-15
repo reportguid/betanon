@@ -146,9 +146,7 @@
   }
 
   body {
-    background-color: var(--color-background);
-    background-image: var(--gradient-bg);
-    background-attachment: fixed;
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-body);
     font-feature-settings: "ss01", "cv11";
