@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const SYMBOLS = ["₦", "$", "€", "£", "¥", "%", "₿", "Ξ"];
 
@@ -6,9 +6,19 @@ type Money = { ch: string; left: number; size: number; delay: number; duration: 
 type Dot = { left: number; bottom: number; size: number; dx: number; dy: number; delay: number; duration: number; opacity: number };
 type Bokeh = { left: number; top: number; size: number; delay: number; duration: number };
 type Node = { x: number; y: number };
+type Shape = { kind: "sq" | "ring" | "tri"; left: number; size: number; dx: number; dy: number; delay: number; duration: number; opacity: number };
 
-export function CurrencyBackdrop({ moneyCount = 14, particleCount = 28, bokehCount = 6, nodeCount = 12 }: { moneyCount?: number; particleCount?: number; bokehCount?: number; nodeCount?: number }) {
-  const money = useMemo<Money[]>(() => Array.from({ length: moneyCount }).map((_, i) => ({
+export function CurrencyBackdrop({ moneyCount = 14, particleCount = 28, bokehCount = 6, nodeCount = 12, shapeCount = 8 }: { moneyCount?: number; particleCount?: number; bokehCount?: number; nodeCount?: number; shapeCount?: number }) {
+  // Auto-reduce density on small/low-power devices for battery + FPS.
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const isSmall = window.matchMedia("(max-width: 640px)").matches;
+    const lowCores = (navigator as unknown as { hardwareConcurrency?: number }).hardwareConcurrency && (navigator as unknown as { hardwareConcurrency: number }).hardwareConcurrency <= 4;
+    setScale(isSmall || lowCores ? 0.55 : 1);
+  }, []);
+  const s = (n: number) => Math.max(3, Math.round(n * scale));
+  const money = useMemo<Money[]>(() => Array.from({ length: s(moneyCount) }).map((_, i) => ({
     ch: SYMBOLS[i % SYMBOLS.length],
     left: Math.random() * 100,
     size: 14 + Math.random() * 26,
@@ -16,9 +26,9 @@ export function CurrencyBackdrop({ moneyCount = 14, particleCount = 28, bokehCou
     duration: 22 + Math.random() * 24,
     drift: (Math.random() - 0.5) * 80,
     opacity: 0.05 + Math.random() * 0.1,
-  })), [moneyCount]);
+  })), [moneyCount, scale]);
 
-  const dots = useMemo<Dot[]>(() => Array.from({ length: particleCount }).map(() => ({
+  const dots = useMemo<Dot[]>(() => Array.from({ length: s(particleCount) }).map(() => ({
     left: Math.random() * 100,
     bottom: -5 - Math.random() * 20,
     size: 2 + Math.random() * 4,
@@ -27,20 +37,32 @@ export function CurrencyBackdrop({ moneyCount = 14, particleCount = 28, bokehCou
     delay: -Math.random() * 30,
     duration: 28 + Math.random() * 32,
     opacity: 0.5 + Math.random() * 0.5,
-  })), [particleCount]);
+  })), [particleCount, scale]);
 
-  const bokeh = useMemo<Bokeh[]>(() => Array.from({ length: bokehCount }).map(() => ({
+  const bokeh = useMemo<Bokeh[]>(() => Array.from({ length: s(bokehCount) }).map(() => ({
     left: Math.random() * 100,
     top: Math.random() * 100,
     size: 120 + Math.random() * 220,
     delay: -Math.random() * 12,
     duration: 14 + Math.random() * 16,
-  })), [bokehCount]);
+  })), [bokehCount, scale]);
 
-  const nodes = useMemo<Node[]>(() => Array.from({ length: nodeCount }).map(() => ({
+  const nodes = useMemo<Node[]>(() => Array.from({ length: s(nodeCount) }).map(() => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
-  })), [nodeCount]);
+  })), [nodeCount, scale]);
+
+  const kinds: Shape["kind"][] = ["sq", "ring", "tri"];
+  const shapes = useMemo<Shape[]>(() => Array.from({ length: s(shapeCount) }).map((_, i) => ({
+    kind: kinds[i % kinds.length],
+    left: Math.random() * 100,
+    size: 10 + Math.random() * 18,
+    dx: (Math.random() - 0.5) * 140,
+    dy: -(60 + Math.random() * 70),
+    delay: -Math.random() * 40,
+    duration: 34 + Math.random() * 30,
+    opacity: 0.25 + Math.random() * 0.25,
+  })), [shapeCount, scale]);
 
   // Build a sparse set of connections (each node linked to its nearest 1–2 neighbors).
   const edges = useMemo(() => {
@@ -105,6 +127,17 @@ export function CurrencyBackdrop({ moneyCount = 14, particleCount = 28, bokehCou
           "--drift": `${p.drift}px` }}>
           {p.ch}
         </span>
+      ))}
+
+      {/* rotating geometric shapes */}
+      {shapes.map((sh, i) => (
+        <span key={`s-${i}`} className={`ex-shape ex-shape-${sh.kind}`} style={{
+          left: `${sh.left}%`, bottom: "-8%",
+          width: sh.size, height: sh.size,
+          animationDelay: `${sh.delay}s`, animationDuration: `${sh.duration}s`,
+          // @ts-expect-error css var
+          "--dx": `${sh.dx}px`, "--dy": `${sh.dy}vh`, "--o": sh.opacity, "--tri": `${sh.size / 2}px`,
+        }} />
       ))}
     </div>
   );
