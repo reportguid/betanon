@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: "Etherox — Money moves, made simple" },
       { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure Etherox account." },
       { property: "og:title", content: "Etherox — Money moves, made simple" },
-      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank." },
+      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure Etherox account." },
     ],
   }),
   component: Index,
