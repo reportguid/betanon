@@ -266,6 +266,28 @@
   .ex-wave { animation: ex-wave-shift 40s linear infinite; }
   @keyframes ex-net-pulse { 0%,100% { opacity: .05; } 50% { opacity: .28; } }
   .ex-net { animation: ex-net-pulse 6s ease-in-out infinite; }
+  @keyframes ex-shape-float {
+    0%   { transform: translate3d(0,0,0) rotate(0deg); opacity: 0; }
+    15%  { opacity: var(--o, .35); }
+    85%  { opacity: var(--o, .35); }
+    100% { transform: translate3d(var(--dx,0), var(--dy,-70vh), 0) rotate(360deg); opacity: 0; }
+  }
+  .ex-shape {
+    position: absolute;
+    animation: ex-shape-float linear infinite;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .55));
+  }
+  .ex-shape-sq  { border: 1.5px solid oklch(0.85 0.24 145 / .75); border-radius: 4px; background: oklch(0.82 0.24 145 / .06); }
+  .ex-shape-ring{ border: 1.5px solid oklch(0.85 0.24 145 / .7); border-radius: 9999px; }
+  .ex-shape-tri { width: 0 !important; height: 0 !important; border-left: var(--tri,10px) solid transparent; border-right: var(--tri,10px) solid transparent; border-bottom: calc(var(--tri,10px) * 1.7) solid oklch(0.85 0.24 145 / .55); background: transparent; filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .6)); }
+  .reduce-motion .ex-money,
+  .reduce-motion .ex-particle,
+  .reduce-motion .ex-bokeh,
+  .reduce-motion .ex-shape,
+  .reduce-motion .ex-graph-line,
+  .reduce-motion .ex-wave,
+  .reduce-motion .ex-net { animation: none !important; }
   @keyframes ex-nav-glow { 0%,100% { filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .8)); } 50% { filter: drop-shadow(0 0 12px oklch(0.82 0.24 145 / 1)); } }
   .ex-nav-active-glow { animation: ex-nav-glow 2.4s ease-in-out infinite; }
   @keyframes ex-skeleton {
