@@ -89,7 +89,7 @@ export function AdminLayout() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex">
       <aside className="hidden md:flex w-64 flex-col border-r border-slate-800 bg-slate-900/60 backdrop-blur">
         <div className="px-5 py-5 border-b border-slate-800">
-          <div className="text-xs uppercase tracking-widest text-slate-500">Etherox</div>
+          <div className="text-xs uppercase tracking-widest text-slate-500">BETANO</div>
           <div className="text-lg font-bold">Admin Panel</div>
         </div>
         <nav className="flex-1 p-3 space-y-1 overflow-y-auto">

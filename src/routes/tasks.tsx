@@ -5,7 +5,7 @@ import { useEtherox, formatNaira } from "@/lib/wallet";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/tasks")({
-  head: () => ({ meta: [{ title: "Tasks — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Tasks — BETANO" }] }),
   component: Tasks,
 });
 
@@ -13,7 +13,7 @@ const tasks = [
   { id: "tap", title: "Tap & Earn", desc: "Tap to claim your daily bonus", reward: 750, Icon: Sparkles },
   { id: "watch", title: "Watch a short video", desc: "30s sponsored clip", reward: 500, Icon: Play },
   { id: "invite", title: "Invite a friend", desc: "Earn when they sign up", reward: 2000, Icon: Users },
-  { id: "share", title: "Share Etherox", desc: "Post on social media", reward: 300, Icon: Share2 },
+  { id: "share", title: "Share BETANO", desc: "Post on social media", reward: 300, Icon: Share2 },
 ];
 
 function Tasks() {

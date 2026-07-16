@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/pay-transfer")({
-  head: () => ({ meta: [{ title: "Pay with bank transfer — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Pay with bank transfer — BETANO" }] }),
   component: PayTransfer,
 });
 
@@ -51,7 +51,7 @@ function PayTransfer() {
         </Link>
         <div>
           <h1 className="text-xl font-bold">Pay with bank transfer</h1>
-          <p className="text-sm text-muted-foreground">Activate Etherox Token</p>
+          <p className="text-sm text-muted-foreground">Activate BETANO Token</p>
         </div>
       </header>
 

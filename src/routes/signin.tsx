@@ -7,7 +7,7 @@ import { useEtherox } from "@/lib/wallet";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/signin")({
-  head: () => ({ meta: [{ title: "Sign in — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Sign in — BETANO" }] }),
   component: SignIn,
 });
 

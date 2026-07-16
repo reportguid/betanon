@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherox/Skeletons";
 
 export const Route = createFileRoute("/history")({
-  head: () => ({ meta: [{ title: "History — Etherox" }] }),
+  head: () => ({ meta: [{ title: "History — BETANO" }] }),
   component: History,
 });
 

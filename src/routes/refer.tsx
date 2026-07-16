@@ -4,7 +4,7 @@ import { ArrowLeft, Copy, Gift } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/refer")({
-  head: () => ({ meta: [{ title: "Refer & Earn — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Refer & Earn — BETANO" }] }),
   component: Refer,
 });
 

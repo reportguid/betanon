@@ -4,7 +4,7 @@ import { User as UserIcon, LogOut, Shield, Gift, HelpCircle, MessagesSquare, Che
 import { useEtherox, formatNaira } from "@/lib/wallet";
 
 export const Route = createFileRoute("/profile")({
-  head: () => ({ meta: [{ title: "Profile — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Profile — BETANO" }] }),
   component: Profile,
 });
 
@@ -18,7 +18,7 @@ function Profile() {
           <UserIcon size={28} />
         </div>
         <div className="flex-1">
-          <div className="text-xl font-bold">{state.fullName || "Etherox user"}</div>
+          <div className="text-xl font-bold">{state.fullName || "BETANO user"}</div>
           <div className="text-sm text-muted-foreground">{state.email || "Not signed in"}</div>
         </div>
       </div>

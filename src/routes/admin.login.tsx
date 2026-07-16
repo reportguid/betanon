@@ -5,7 +5,7 @@ import { ShieldCheck, Lock, Mail, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/login")({
-  head: () => ({ meta: [{ title: "Admin Login — Etherox" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Admin Login — BETANO" }, { name: "robots", content: "noindex" }] }),
   component: AdminLogin,
 });
 
@@ -68,7 +68,7 @@ function AdminLogin() {
             <span className="text-xs text-slate-400">Email</span>
             <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2.5">
               <Mail size={16} className="text-slate-500" />
-              <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 bg-transparent outline-none text-sm" placeholder="admin@etherox.com" />
+              <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 bg-transparent outline-none text-sm" placeholder="admin@betano.com" />
             </div>
           </label>
           <label className="block">

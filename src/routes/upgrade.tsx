@@ -4,7 +4,7 @@ import { Check, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/upgrade")({
-  head: () => ({ meta: [{ title: "Upgrade — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Upgrade — BETANO" }] }),
   component: Upgrade,
 });
 
