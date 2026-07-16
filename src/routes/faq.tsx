@@ -3,14 +3,14 @@ import { MobileFrame } from "@/components/etherox/MobileFrame";
 import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({ meta: [{ title: "FAQ — Etherox" }] }),
+  head: () => ({ meta: [{ title: "FAQ — BETANO" }] }),
   component: FAQ,
 });
 
 const items = [
   { q: "How do I withdraw my balance?", a: "Upgrade your account to unlock bank withdrawals. Payouts arrive within minutes." },
   { q: "How are bonuses calculated?", a: "Welcome bonus is ₦50,000. Surprise drops range from ₦5,000–₦25,000." },
-  { q: "Is Etherox secure?", a: "Yes — 256-bit SSL, PCI-DSS compliant, and all funds are held in the Etherox Secure Vault." },
+  { q: "Is BETANO secure?", a: "Yes — 256-bit SSL, PCI-DSS compliant, and all funds are held in the BETANO Secure Vault." },
   { q: "Can I refer friends?", a: "Yes — each successful referral earns you ₦2,000." },
 ];
 

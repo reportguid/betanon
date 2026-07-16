@@ -3,7 +3,7 @@ import { MobileFrame } from "@/components/etherox/MobileFrame";
 import { ArrowLeft, Mail, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/support")({
-  head: () => ({ meta: [{ title: "Support — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Support — BETANO" }] }),
   component: Support,
 });
 
@@ -16,11 +16,11 @@ function Support() {
       </header>
 
       <div className="mt-6 space-y-3">
-        <a href="mailto:support@etherox.app" className="flex items-center gap-3 rounded-2xl border border-primary/25 bg-card/50 p-4">
+        <a href="mailto:support@betano.app" className="flex items-center gap-3 rounded-2xl border border-primary/25 bg-card/50 p-4">
           <Mail className="text-primary" />
           <div>
             <div className="font-semibold">Email us</div>
-            <div className="text-sm text-muted-foreground">support@etherox.app</div>
+            <div className="text-sm text-muted-foreground">support@betano.app</div>
           </div>
         </a>
         <button className="w-full flex items-center gap-3 rounded-2xl border border-primary/25 bg-card/50 p-4 text-left">

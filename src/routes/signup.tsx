@@ -8,7 +8,7 @@ import { useEtherox } from "@/lib/wallet";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Sign up — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Sign up — BETANO" }] }),
   component: SignUp,
 });
 
@@ -38,7 +38,7 @@ function SignUp() {
       <div className="mt-6 rounded-3xl border border-primary/25 bg-card/60 p-6 glow-soft">
         <div className="flex items-center gap-2">
           <Sparkles className="text-primary" size={22} />
-          <h1 className="text-2xl font-bold">Welcome to Etherox</h1>
+          <h1 className="text-2xl font-bold">Welcome to BETANO</h1>
         </div>
         <p className="text-muted-foreground mt-1">Create an account to get started</p>
 
@@ -66,7 +66,7 @@ function SignUp() {
           <label className="flex items-start gap-3 text-sm">
             <button type="button" onClick={() => setAgree(!agree)} className={`mt-0.5 size-5 rounded-full border-2 ${agree ? "bg-primary border-primary" : "border-primary/50"}`} />
             <span className="text-muted-foreground">
-              By continuing, you agree to Etherox's <span className="text-primary">Terms of Service</span> and <span className="text-primary">Privacy Policy</span>
+              By continuing, you agree to BETANO's <span className="text-primary">Terms of Service</span> and <span className="text-primary">Privacy Policy</span>
             </span>
           </label>
 

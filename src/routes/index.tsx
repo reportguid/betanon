@@ -7,10 +7,10 @@ import { ArrowRight, Shield, Zap, TrendingUp } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Etherox — Money moves, made simple" },
-      { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure Etherox account." },
-      { property: "og:title", content: "Etherox — Money moves, made simple" },
-      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure Etherox account." },
+      { title: "BETANO — Money moves, made simple" },
+      { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
+      { property: "og:title", content: "BETANO — Money moves, made simple" },
+      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
     ],
   }),
   component: Index,
@@ -36,7 +36,7 @@ function Index() {
         </h1>
 
         <p className="mt-6 text-muted-foreground leading-relaxed">
-          Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure Etherox account.
+          Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account.
         </p>
 
         <Link

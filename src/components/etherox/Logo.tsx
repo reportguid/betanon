@@ -17,7 +17,7 @@ export function Brand({ size = 40 }: { size?: number }) {
   return (
     <div className="flex items-center gap-2">
       <Logo size={size} />
-      <span className="text-2xl font-bold text-primary text-glow tracking-tight">Etherox</span>
+      <span className="text-2xl font-bold text-primary text-glow tracking-tight">BETANO</span>
     </div>
   );
 }

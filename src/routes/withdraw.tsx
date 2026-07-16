@@ -4,7 +4,7 @@ import { ArrowLeft, ShieldAlert, Lock, ArrowUpRight } from "lucide-react";
 import { useEtherox, formatNaira } from "@/lib/wallet";
 
 export const Route = createFileRoute("/withdraw")({
-  head: () => ({ meta: [{ title: "Withdraw — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Withdraw — BETANO" }] }),
   component: Withdraw,
 });
 
@@ -47,7 +47,7 @@ function Withdraw() {
         </ul>
 
         <Link to="/buy-token" className="mt-6 w-full rounded-full bg-primary text-primary-foreground font-bold py-4 flex items-center justify-center gap-2 glow-primary ex-pulse-glow transition hover:scale-[1.02]">
-          <ArrowUpRight size={18} /> Buy Etherox Token
+          <ArrowUpRight size={18} /> Buy BETANO Token
         </Link>
         <p className="text-center text-xs text-muted-foreground mt-3">Your balance is safe and will remain available after upgrade.</p>
       </div>

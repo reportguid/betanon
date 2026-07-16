@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { BalanceSkeleton, TileSkeleton, TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherox/Skeletons";
 
 export const Route = createFileRoute("/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Etherox" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — BETANO" }] }),
   component: Dashboard,
 });
 
@@ -164,7 +164,7 @@ function Dashboard() {
           </div>
         ) : (
           <>
-            <Tile to="/buy-token" Icon={TrendingUp} label="Buy Etherox Token" size="lg" delay="ex-delay-1" featured />
+            <Tile to="/buy-token" Icon={TrendingUp} label="Buy BETANO Token" size="lg" delay="ex-delay-1" featured />
             <Tile to="/refer" Icon={Gift} label="Refer & Earn" size="lg" delay="ex-delay-2" />
             <Tile to="/faq" Icon={HelpCircle} label="FAQ" size="sm" delay="ex-delay-3" />
             <Tile to="/support" Icon={MessagesSquare} label="Support" size="sm" delay="ex-delay-4" />
@@ -178,7 +178,7 @@ function Dashboard() {
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-semibold text-sm flex items-center gap-1.5">Encrypted & Secure <Lock size={12} /></div>
-          <div className="text-[11px] text-muted-foreground leading-relaxed">256-bit SSL · PCI-DSS · Etherox Secure Vault</div>
+          <div className="text-[11px] text-muted-foreground leading-relaxed">256-bit SSL · PCI-DSS · BETANO Secure Vault</div>
         </div>
       </div>
 
@@ -294,7 +294,7 @@ function SurpriseModal({ reward, credited, closing, onClaim, onClose }: { reward
               </span>
             </div>
             <h3 className="text-center text-2xl font-bold mt-3">A bonus is waiting</h3>
-            <p className="text-center text-muted-foreground mt-2">You've unlocked a free reward. Tap claim to credit it to your Etherox wallet instantly.</p>
+            <p className="text-center text-muted-foreground mt-2">You've unlocked a free reward. Tap claim to credit it to your BETANO wallet instantly.</p>
 
             <div className="mt-5 rounded-2xl border border-border bg-background/50 px-5 py-6 text-center">
               <div className="text-xs tracking-widest text-muted-foreground">YOUR REWARD</div>
@@ -304,7 +304,7 @@ function SurpriseModal({ reward, credited, closing, onClaim, onClose }: { reward
 
             <div className="mt-4 rounded-2xl border border-border bg-background/40 px-4 py-3 flex items-start gap-3">
               <Shield2 size={18} className="text-primary mt-0.5" />
-              <p className="text-sm text-muted-foreground">100% safe. Bonus is credited from Etherox — no fees, no card details required.</p>
+              <p className="text-sm text-muted-foreground">100% safe. Bonus is credited from BETANO — no fees, no card details required.</p>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-3">

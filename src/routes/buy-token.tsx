@@ -3,7 +3,7 @@ import { MobileFrame } from "@/components/etherox/MobileFrame";
 import { ArrowLeft, Check, AlertTriangle, KeyRound } from "lucide-react";
 
 export const Route = createFileRoute("/buy-token")({
-  head: () => ({ meta: [{ title: "Buy Etherox Token" }] }),
+  head: () => ({ meta: [{ title: "Buy BETANO Token" }] }),
   component: BuyToken,
 });
 
@@ -11,7 +11,7 @@ const PERKS = [
   "Required to verify every withdrawal",
   "One-time purchase — never expires",
   "Instant activation after admin approval",
-  "Tied to your Etherox account only",
+  "Tied to your BETANO account only",
 ];
 
 function BuyToken() {
@@ -23,7 +23,7 @@ function BuyToken() {
           <ArrowLeft size={18} />
         </Link>
         <div>
-          <h1 className="text-xl font-bold">Buy Etherox Token</h1>
+          <h1 className="text-xl font-bold">Buy BETANO Token</h1>
           <p className="text-sm text-muted-foreground">One-time withdrawal verification key</p>
         </div>
       </header>
@@ -46,7 +46,7 @@ function BuyToken() {
         <div className="text-xs tracking-widest text-muted-foreground">ORDER SUMMARY</div>
         <div className="mt-3 flex items-start justify-between gap-4">
           <div>
-            <div className="text-lg font-bold">Etherox Token</div>
+            <div className="text-lg font-bold">BETANO Token</div>
             <p className="text-sm text-muted-foreground mt-1">One-time withdrawal verification — pay once, use it to verify every withdrawal forever.</p>
           </div>
           <div className="text-lg font-bold whitespace-nowrap">₦8,300</div>
