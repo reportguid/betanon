@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WithdrawalSuccessRouteImport } from './routes/withdrawal-success'
+import { Route as WithdrawalApprovedRouteImport } from './routes/withdrawal-approved'
 import { Route as WithdrawRouteImport } from './routes/withdraw'
 import { Route as WelcomeBonusRouteImport } from './routes/welcome-bonus'
 import { Route as UpgradeRouteImport } from './routes/upgrade'
@@ -18,6 +20,9 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SigninRouteImport } from './routes/signin'
 import { Route as ReferRouteImport } from './routes/refer'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PaymentUnderReviewRouteImport } from './routes/payment-under-review'
+import { Route as PaymentReviewRouteImport } from './routes/payment-review'
+import { Route as PaymentApprovedRouteImport } from './routes/payment-approved'
 import { Route as PayTransferRouteImport } from './routes/pay-transfer'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -38,6 +43,16 @@ import { Route as AdminDepositsRouteImport } from './routes/admin.deposits'
 import { Route as AdminBannersRouteImport } from './routes/admin.banners'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 
+const WithdrawalSuccessRoute = WithdrawalSuccessRouteImport.update({
+  id: '/withdrawal-success',
+  path: '/withdrawal-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawalApprovedRoute = WithdrawalApprovedRouteImport.update({
+  id: '/withdrawal-approved',
+  path: '/withdrawal-approved',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WithdrawRoute = WithdrawRouteImport.update({
   id: '/withdraw',
   path: '/withdraw',
@@ -81,6 +96,21 @@ const ReferRoute = ReferRouteImport.update({
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentUnderReviewRoute = PaymentUnderReviewRouteImport.update({
+  id: '/payment-under-review',
+  path: '/payment-under-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentReviewRoute = PaymentReviewRouteImport.update({
+  id: '/payment-review',
+  path: '/payment-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentApprovedRoute = PaymentApprovedRouteImport.update({
+  id: '/payment-approved',
+  path: '/payment-approved',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PayTransferRoute = PayTransferRouteImport.update({
@@ -187,6 +217,9 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/history': typeof HistoryRoute
   '/pay-transfer': typeof PayTransferRoute
+  '/payment-approved': typeof PaymentApprovedRoute
+  '/payment-review': typeof PaymentReviewRoute
+  '/payment-under-review': typeof PaymentUnderReviewRoute
   '/profile': typeof ProfileRoute
   '/refer': typeof ReferRoute
   '/signin': typeof SigninRoute
@@ -196,6 +229,8 @@ export interface FileRoutesByFullPath {
   '/upgrade': typeof UpgradeRoute
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
+  '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
   '/admin/deposits': typeof AdminDepositsRoute
@@ -216,6 +251,9 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/history': typeof HistoryRoute
   '/pay-transfer': typeof PayTransferRoute
+  '/payment-approved': typeof PaymentApprovedRoute
+  '/payment-review': typeof PaymentReviewRoute
+  '/payment-under-review': typeof PaymentUnderReviewRoute
   '/profile': typeof ProfileRoute
   '/refer': typeof ReferRoute
   '/signin': typeof SigninRoute
@@ -225,6 +263,8 @@ export interface FileRoutesByTo {
   '/upgrade': typeof UpgradeRoute
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
+  '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
   '/admin/deposits': typeof AdminDepositsRoute
@@ -247,6 +287,9 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/history': typeof HistoryRoute
   '/pay-transfer': typeof PayTransferRoute
+  '/payment-approved': typeof PaymentApprovedRoute
+  '/payment-review': typeof PaymentReviewRoute
+  '/payment-under-review': typeof PaymentUnderReviewRoute
   '/profile': typeof ProfileRoute
   '/refer': typeof ReferRoute
   '/signin': typeof SigninRoute
@@ -256,6 +299,8 @@ export interface FileRoutesById {
   '/upgrade': typeof UpgradeRoute
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
+  '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
   '/admin/deposits': typeof AdminDepositsRoute
@@ -279,6 +324,9 @@ export interface FileRouteTypes {
     | '/faq'
     | '/history'
     | '/pay-transfer'
+    | '/payment-approved'
+    | '/payment-review'
+    | '/payment-under-review'
     | '/profile'
     | '/refer'
     | '/signin'
@@ -288,6 +336,8 @@ export interface FileRouteTypes {
     | '/upgrade'
     | '/welcome-bonus'
     | '/withdraw'
+    | '/withdrawal-approved'
+    | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
     | '/admin/deposits'
@@ -308,6 +358,9 @@ export interface FileRouteTypes {
     | '/faq'
     | '/history'
     | '/pay-transfer'
+    | '/payment-approved'
+    | '/payment-review'
+    | '/payment-under-review'
     | '/profile'
     | '/refer'
     | '/signin'
@@ -317,6 +370,8 @@ export interface FileRouteTypes {
     | '/upgrade'
     | '/welcome-bonus'
     | '/withdraw'
+    | '/withdrawal-approved'
+    | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
     | '/admin/deposits'
@@ -338,6 +393,9 @@ export interface FileRouteTypes {
     | '/faq'
     | '/history'
     | '/pay-transfer'
+    | '/payment-approved'
+    | '/payment-review'
+    | '/payment-under-review'
     | '/profile'
     | '/refer'
     | '/signin'
@@ -347,6 +405,8 @@ export interface FileRouteTypes {
     | '/upgrade'
     | '/welcome-bonus'
     | '/withdraw'
+    | '/withdrawal-approved'
+    | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
     | '/admin/deposits'
@@ -369,6 +429,9 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   HistoryRoute: typeof HistoryRoute
   PayTransferRoute: typeof PayTransferRoute
+  PaymentApprovedRoute: typeof PaymentApprovedRoute
+  PaymentReviewRoute: typeof PaymentReviewRoute
+  PaymentUnderReviewRoute: typeof PaymentUnderReviewRoute
   ProfileRoute: typeof ProfileRoute
   ReferRoute: typeof ReferRoute
   SigninRoute: typeof SigninRoute
@@ -378,10 +441,26 @@ export interface RootRouteChildren {
   UpgradeRoute: typeof UpgradeRoute
   WelcomeBonusRoute: typeof WelcomeBonusRoute
   WithdrawRoute: typeof WithdrawRoute
+  WithdrawalApprovedRoute: typeof WithdrawalApprovedRoute
+  WithdrawalSuccessRoute: typeof WithdrawalSuccessRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/withdrawal-success': {
+      id: '/withdrawal-success'
+      path: '/withdrawal-success'
+      fullPath: '/withdrawal-success'
+      preLoaderRoute: typeof WithdrawalSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdrawal-approved': {
+      id: '/withdrawal-approved'
+      path: '/withdrawal-approved'
+      fullPath: '/withdrawal-approved'
+      preLoaderRoute: typeof WithdrawalApprovedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/withdraw': {
       id: '/withdraw'
       path: '/withdraw'
@@ -443,6 +522,27 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-under-review': {
+      id: '/payment-under-review'
+      path: '/payment-under-review'
+      fullPath: '/payment-under-review'
+      preLoaderRoute: typeof PaymentUnderReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-review': {
+      id: '/payment-review'
+      path: '/payment-review'
+      fullPath: '/payment-review'
+      preLoaderRoute: typeof PaymentReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-approved': {
+      id: '/payment-approved'
+      path: '/payment-approved'
+      fullPath: '/payment-approved'
+      preLoaderRoute: typeof PaymentApprovedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pay-transfer': {
@@ -621,6 +721,9 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   HistoryRoute: HistoryRoute,
   PayTransferRoute: PayTransferRoute,
+  PaymentApprovedRoute: PaymentApprovedRoute,
+  PaymentReviewRoute: PaymentReviewRoute,
+  PaymentUnderReviewRoute: PaymentUnderReviewRoute,
   ProfileRoute: ProfileRoute,
   ReferRoute: ReferRoute,
   SigninRoute: SigninRoute,
@@ -630,6 +733,8 @@ const rootRouteChildren: RootRouteChildren = {
   UpgradeRoute: UpgradeRoute,
   WelcomeBonusRoute: WelcomeBonusRoute,
   WithdrawRoute: WithdrawRoute,
+  WithdrawalApprovedRoute: WithdrawalApprovedRoute,
+  WithdrawalSuccessRoute: WithdrawalSuccessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -51,11 +51,15 @@ export type Database = {
         Row: {
           admin_note: string | null
           amount: number
+          approved_at: string | null
           created_at: string
+          fpc_code: string | null
           id: string
           method: string
           receipt_url: string | null
           reference: string | null
+          rejected_at: string | null
+          rejection_reason: string | null
           reviewed_at: string | null
           reviewed_by: string | null
           status: string
@@ -64,11 +68,15 @@ export type Database = {
         Insert: {
           admin_note?: string | null
           amount: number
+          approved_at?: string | null
           created_at?: string
+          fpc_code?: string | null
           id?: string
           method?: string
           receipt_url?: string | null
           reference?: string | null
+          rejected_at?: string | null
+          rejection_reason?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
@@ -77,11 +85,15 @@ export type Database = {
         Update: {
           admin_note?: string | null
           amount?: number
+          approved_at?: string | null
           created_at?: string
+          fpc_code?: string | null
           id?: string
           method?: string
           receipt_url?: string | null
           reference?: string | null
+          rejected_at?: string | null
+          rejection_reason?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
@@ -325,39 +337,51 @@ export type Database = {
           account_number: string | null
           admin_note: string | null
           amount: number
+          approved_at: string | null
           bank_name: string | null
           created_at: string
           id: string
+          rejected_at: string | null
+          rejection_reason: string | null
           reviewed_at: string | null
           reviewed_by: string | null
           status: string
           user_id: string
+          withdrawal_code: string | null
         }
         Insert: {
           account_name?: string | null
           account_number?: string | null
           admin_note?: string | null
           amount: number
+          approved_at?: string | null
           bank_name?: string | null
           created_at?: string
           id?: string
+          rejected_at?: string | null
+          rejection_reason?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
           user_id: string
+          withdrawal_code?: string | null
         }
         Update: {
           account_name?: string | null
           account_number?: string | null
           admin_note?: string | null
           amount?: number
+          approved_at?: string | null
           bank_name?: string | null
           created_at?: string
           id?: string
+          rejected_at?: string | null
+          rejection_reason?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
           user_id?: string
+          withdrawal_code?: string | null
         }
         Relationships: []
       }

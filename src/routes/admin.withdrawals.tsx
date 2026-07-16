@@ -22,8 +22,16 @@ function Withdrawals() {
   });
 
   async function handle(id: string, status: "approved" | "rejected") {
-    try { await reviewRequest("withdrawals", id, status); toast.success(`Withdrawal ${status}`); qc.invalidateQueries({ queryKey: ["admin-withdrawals"] }); }
-    catch (e: any) { toast.error(e.message); }
+    let note: string | undefined;
+    if (status === "rejected") {
+      const r = typeof window !== "undefined" ? window.prompt("Rejection reason (optional)") : "";
+      note = r ?? undefined;
+    }
+    try {
+      await reviewRequest("withdrawals", id, status, note);
+      toast.success(status === "approved" ? "Withdrawal approved — code generated" : "Withdrawal rejected");
+      qc.invalidateQueries({ queryKey: ["admin-withdrawals"] });
+    } catch (e: any) { toast.error(e.message); }
   }
 
   return (

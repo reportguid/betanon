@@ -22,8 +22,16 @@ function Deposits() {
   });
 
   async function handle(id: string, status: "approved" | "rejected") {
-    try { await reviewRequest("deposits", id, status); toast.success(`Deposit ${status}`); qc.invalidateQueries({ queryKey: ["admin-deposits"] }); }
-    catch (e: any) { toast.error(e.message); }
+    let note: string | undefined;
+    if (status === "rejected") {
+      const r = typeof window !== "undefined" ? window.prompt("Rejection reason (optional)") : "";
+      note = r ?? undefined;
+    }
+    try {
+      await reviewRequest("deposits", id, status, note);
+      toast.success(status === "approved" ? "Deposit approved — FPC code generated" : "Deposit rejected");
+      qc.invalidateQueries({ queryKey: ["admin-deposits"] });
+    } catch (e: any) { toast.error(e.message); }
   }
 
   return (

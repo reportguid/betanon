@@ -1,5 +1,10 @@
 import { supabase } from "@/integrations/supabase/client";
 
+function makeCode(prefix: string) {
+  const rand = Math.random().toString(16).slice(2, 10).toUpperCase();
+  return `${prefix}-${rand}`;
+}
+
 export async function reviewRequest(
   table: "deposits" | "withdrawals" | "kyc_submissions",
   id: string,
@@ -12,10 +17,22 @@ export async function reviewRequest(
   if (rowErr || !rowData) throw rowErr ?? new Error("Not found");
   const row = rowData as any;
 
-  const { error } = await supabase
-    .from(table)
-    .update({ status, admin_note: note ?? null, reviewed_by: uid, reviewed_at: new Date().toISOString() })
-    .eq("id", id);
+  const now = new Date().toISOString();
+  const patch: any = {
+    status,
+    admin_note: note ?? null,
+    reviewed_by: uid,
+    reviewed_at: now,
+  };
+  if (status === "approved") {
+    patch.approved_at = now;
+    if (table === "withdrawals") patch.withdrawal_code = makeCode("FPC");
+    if (table === "deposits") patch.fpc_code = makeCode("FPC");
+  } else if (status === "rejected") {
+    patch.rejected_at = now;
+    patch.rejection_reason = note ?? null;
+  }
+  const { error } = await supabase.from(table).update(patch).eq("id", id);
   if (error) throw error;
 
   if (status === "approved") {
