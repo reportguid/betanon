@@ -92,8 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "BETANO — Money moves, made simple" },
       { name: "twitter:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/c375d618-1620-401e-901e-e99b344a9958" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/c375d618-1620-401e-901e-e99b344a9958" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/532302a0-0c73-4645-b716-73c95eb5972e" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/532302a0-0c73-4645-b716-73c95eb5972e" },
     ],
     links: [
       {
