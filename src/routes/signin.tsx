@@ -5,6 +5,7 @@ import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useEtherox } from "@/lib/wallet";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signin")({
   head: () => ({ meta: [{ title: "Sign in — BETANO" }] }),
@@ -15,13 +16,19 @@ function SignIn() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [loading, setLoading] = useState(false);
   const { update, state } = useEtherox();
   const nav = useNavigate();
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email || !pw) return toast.error("Enter email & password");
+    setLoading(true);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password: pw });
+    setLoading(false);
+    if (error || !data.session) { toast.error(error?.message || "Sign in failed"); return; }
     update({ signedIn: true, email, fullName: state.fullName || email.split("@")[0] });
+    toast.success("Signed in");
     nav({ to: state.welcomeClaimed ? "/dashboard" : "/welcome-bonus" });
   }
 
@@ -47,7 +54,7 @@ function SignIn() {
             </button>
           </Field>
 
-          <button className="w-full rounded-2xl bg-primary text-primary-foreground font-bold py-4 glow-primary">Sign In</button>
+          <button disabled={loading} className="w-full rounded-2xl bg-primary text-primary-foreground font-bold py-4 glow-primary disabled:opacity-60">{loading ? "Signing in…" : "Sign In"}</button>
         </form>
 
         <Divider />
