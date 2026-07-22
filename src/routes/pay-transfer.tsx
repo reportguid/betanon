@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { MobileFrame } from "@/components/etherox/MobileFrame";
 import { ArrowLeft, AlertTriangle, Copy, Check, Timer, Upload, CheckCircle2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/pay-transfer")({
   head: () => ({ meta: [{ title: "Pay with bank transfer — BETANO" }] }),
@@ -20,8 +21,9 @@ function PayTransfer() {
   const [seconds, setSeconds] = useState(30 * 60);
   const [copied, setCopied] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const nav = useNavigate();
 
   useEffect(() => {
     const id = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
@@ -38,9 +40,46 @@ function PayTransfer() {
     setTimeout(() => setCopied(null), 1400);
   }
 
-  function submit() {
-    setSubmitted(true);
-    toast("Payment submitted — awaiting admin approval");
+  async function submit() {
+    if (submitting) return;
+    const file = fileRef.current?.files?.[0];
+    if (!file) { toast.error("Please attach your payment receipt first"); return; }
+    if (file.size > 5 * 1024 * 1024) { toast.error("File too large (max 5MB)"); return; }
+    setSubmitting(true);
+    try {
+      const { data: u } = await supabase.auth.getUser();
+      const uid = u.user?.id;
+      if (!uid) { toast.error("Please sign in to submit"); nav({ to: "/signin" }); return; }
+
+      // Prevent duplicate pending deposit
+      const { data: pending } = await supabase
+        .from("deposits").select("id").eq("user_id", uid).eq("status", "pending").maybeSingle();
+      if (pending?.id) {
+        nav({ to: "/payment-under-review", search: { id: pending.id } });
+        return;
+      }
+
+      const path = `${uid}/${Date.now()}-${file.name.replace(/[^a-z0-9_.-]/gi, "_")}`;
+      const { error: upErr } = await supabase.storage.from("receipts").upload(path, file, { upsert: false });
+      if (upErr) throw upErr;
+
+      const reference = `RCPT-${Math.random().toString(16).slice(2, 10).toUpperCase()}`;
+      const { data: dep, error: insErr } = await supabase.from("deposits").insert({
+        user_id: uid,
+        amount: 8300,
+        method: "bank_transfer",
+        reference,
+        receipt_url: path,
+        status: "pending",
+      }).select("id").single();
+      if (insErr) throw insErr;
+
+      toast.success("Payment submitted — awaiting admin approval");
+      nav({ to: "/payment-under-review", search: { id: dep.id } });
+    } catch (e: any) {
+      toast.error(e?.message || "Could not submit payment");
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -94,9 +133,10 @@ function PayTransfer() {
 
       <button
         onClick={submit}
+        disabled={submitting}
         className="mt-5 mb-28 w-full rounded-full bg-primary text-primary-foreground font-bold py-4 glow-primary ex-pulse-glow inline-flex items-center justify-center gap-2 transition hover:scale-[1.02] ex-fade-up ex-delay-5"
       >
-        {submitted ? <><CheckCircle2 size={18} /> Submitted — awaiting approval</> : "I have made my payment"}
+        {submitting ? <><CheckCircle2 size={18} /> Submitting…</> : "I have made my payment"}
       </button>
 
     </MobileFrame>

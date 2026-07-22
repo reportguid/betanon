@@ -1,12 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { MobileFrame } from "@/components/etherox/MobileFrame";
 import { StatusBadge } from "@/components/etherox/StatusBadge";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, ArrowLeft, Info } from "lucide-react";
 import { formatNaira } from "@/lib/wallet";
 import { z } from "zod";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/payment-under-review")({
   head: () => ({ meta: [{ title: "Payment Under Review — BETANO" }] }),
@@ -16,6 +17,8 @@ export const Route = createFileRoute("/payment-under-review")({
 
 function Page() {
   const { id } = Route.useSearch();
+  const nav = useNavigate();
+  const qc = useQueryClient();
   const { data: d } = useQuery({
     queryKey: ["deposit", id],
     enabled: !!id,
@@ -25,6 +28,28 @@ function Page() {
       return data as any;
     },
   });
+
+  useEffect(() => {
+    if (!id) return;
+    // Auto-redirect if already resolved on first load
+    if (d?.status === "approved") { nav({ to: "/payment-approved", search: { payment: id } }); return; }
+    if (d?.status === "rejected") { nav({ to: "/payment-review", search: { id } }); return; }
+
+    const channel = supabase
+      .channel(`deposit-${id}`)
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "deposits", filter: `id=eq.${id}` },
+        (payload) => {
+          const row: any = payload.new;
+          qc.setQueryData(["deposit", id], row);
+          if (row.status === "approved") nav({ to: "/payment-approved", search: { payment: id } });
+          else if (row.status === "rejected") nav({ to: "/payment-review", search: { id } });
+        },
+      )
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [id, d?.status, nav, qc]);
 
   return (
     <MobileFrame>
