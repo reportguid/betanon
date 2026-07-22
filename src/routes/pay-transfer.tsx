@@ -47,8 +47,13 @@ function PayTransfer() {
     if (file.size > 5 * 1024 * 1024) { toast.error("File too large (max 5MB)"); return; }
     setSubmitting(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      const uid = u.user?.id;
+      // Prefer local session (works instantly, survives refresh); fall back to getUser.
+      const { data: sess } = await supabase.auth.getSession();
+      let uid = sess.session?.user?.id;
+      if (!uid) {
+        const { data: u } = await supabase.auth.getUser();
+        uid = u.user?.id;
+      }
       if (!uid) { toast.error("Please sign in to submit"); nav({ to: "/signin" }); return; }
 
       // Prevent duplicate pending deposit
