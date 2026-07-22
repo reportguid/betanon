@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WithdrawalSuccessRouteImport } from './routes/withdrawal-success'
+import { Route as WithdrawalCompletedRouteImport } from './routes/withdrawal-completed'
 import { Route as WithdrawalApprovedRouteImport } from './routes/withdrawal-approved'
 import { Route as WithdrawRouteImport } from './routes/withdraw'
 import { Route as WelcomeBonusRouteImport } from './routes/welcome-bonus'
@@ -46,6 +47,11 @@ import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 const WithdrawalSuccessRoute = WithdrawalSuccessRouteImport.update({
   id: '/withdrawal-success',
   path: '/withdrawal-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawalCompletedRoute = WithdrawalCompletedRouteImport.update({
+  id: '/withdrawal-completed',
+  path: '/withdrawal-completed',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WithdrawalApprovedRoute = WithdrawalApprovedRouteImport.update({
@@ -230,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
   '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-completed': typeof WithdrawalCompletedRoute
   '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
@@ -264,6 +271,7 @@ export interface FileRoutesByTo {
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
   '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-completed': typeof WithdrawalCompletedRoute
   '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
@@ -300,6 +308,7 @@ export interface FileRoutesById {
   '/welcome-bonus': typeof WelcomeBonusRoute
   '/withdraw': typeof WithdrawRoute
   '/withdrawal-approved': typeof WithdrawalApprovedRoute
+  '/withdrawal-completed': typeof WithdrawalCompletedRoute
   '/withdrawal-success': typeof WithdrawalSuccessRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banners': typeof AdminBannersRoute
@@ -337,6 +346,7 @@ export interface FileRouteTypes {
     | '/welcome-bonus'
     | '/withdraw'
     | '/withdrawal-approved'
+    | '/withdrawal-completed'
     | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
@@ -371,6 +381,7 @@ export interface FileRouteTypes {
     | '/welcome-bonus'
     | '/withdraw'
     | '/withdrawal-approved'
+    | '/withdrawal-completed'
     | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
@@ -406,6 +417,7 @@ export interface FileRouteTypes {
     | '/welcome-bonus'
     | '/withdraw'
     | '/withdrawal-approved'
+    | '/withdrawal-completed'
     | '/withdrawal-success'
     | '/admin/analytics'
     | '/admin/banners'
@@ -442,6 +454,7 @@ export interface RootRouteChildren {
   WelcomeBonusRoute: typeof WelcomeBonusRoute
   WithdrawRoute: typeof WithdrawRoute
   WithdrawalApprovedRoute: typeof WithdrawalApprovedRoute
+  WithdrawalCompletedRoute: typeof WithdrawalCompletedRoute
   WithdrawalSuccessRoute: typeof WithdrawalSuccessRoute
 }
 
@@ -452,6 +465,13 @@ declare module '@tanstack/react-router' {
       path: '/withdrawal-success'
       fullPath: '/withdrawal-success'
       preLoaderRoute: typeof WithdrawalSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdrawal-completed': {
+      id: '/withdrawal-completed'
+      path: '/withdrawal-completed'
+      fullPath: '/withdrawal-completed'
+      preLoaderRoute: typeof WithdrawalCompletedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/withdrawal-approved': {
@@ -734,6 +754,7 @@ const rootRouteChildren: RootRouteChildren = {
   WelcomeBonusRoute: WelcomeBonusRoute,
   WithdrawRoute: WithdrawRoute,
   WithdrawalApprovedRoute: WithdrawalApprovedRoute,
+  WithdrawalCompletedRoute: WithdrawalCompletedRoute,
   WithdrawalSuccessRoute: WithdrawalSuccessRoute,
 }
 export const routeTree = rootRouteImport
