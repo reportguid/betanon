@@ -6,6 +6,7 @@ import { Mail, Lock, User as UserIcon, Eye, EyeOff, Gift, Sparkles } from "lucid
 import { useState } from "react";
 import { useEtherox } from "@/lib/wallet";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({ meta: [{ title: "Sign up — BETANO" }] }),
@@ -19,13 +20,26 @@ function SignUp() {
   const [pw, setPw] = useState("");
   const [ref, setRef] = useState("");
   const [agree, setAgree] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { update } = useEtherox();
   const nav = useNavigate();
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !email || !pw) return toast.error("Fill all required fields");
     if (!agree) return toast.error("You must agree to the Terms");
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password: pw,
+      options: {
+        emailRedirectTo: `${window.location.origin}/dashboard`,
+        data: { full_name: name, referral_code: ref || null },
+      },
+    });
+    setLoading(false);
+    if (error) { toast.error(error.message); return; }
+    if (!data.session) { toast("Check your email to confirm your account"); nav({ to: "/signin" }); return; }
     update({ signedIn: true, fullName: name, email });
     nav({ to: "/welcome-bonus" });
   }
@@ -70,7 +84,7 @@ function SignUp() {
             </span>
           </label>
 
-          <button className="w-full rounded-2xl bg-primary text-primary-foreground font-bold py-4 glow-primary">Create Account</button>
+          <button disabled={loading} className="w-full rounded-2xl bg-primary text-primary-foreground font-bold py-4 glow-primary disabled:opacity-60">{loading ? "Creating…" : "Create Account"}</button>
         </form>
 
         <Divider />

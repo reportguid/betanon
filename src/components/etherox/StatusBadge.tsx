@@ -27,6 +27,7 @@ const steps: { key: string; label: string; matchStatuses: WithdrawStatus[] }[] =
   { key: "s3", label: "Processing", matchStatuses: ["processing", "approved", "completed"] },
   { key: "s4", label: "Approved", matchStatuses: ["approved", "completed"] },
   { key: "s5", label: "Funds Sent", matchStatuses: ["completed"] },
+  { key: "s6", label: "Completed", matchStatuses: ["completed"] },
 ];
 
 export function WithdrawTimeline({ status }: { status: WithdrawStatus }) {
