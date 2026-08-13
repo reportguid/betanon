@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { ArrowDownRight, Receipt, AlertTriangle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 import { useEffect, useState } from "react";
-import { TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherox/Skeletons";
+import { TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherum/Skeletons";
 
 export const Route = createFileRoute("/history")({
-  head: () => ({ meta: [{ title: "History — BETANO" }] }),
+  head: () => ({ meta: [{ title: "History — ETHERUM" }] }),
   component: History,
 });
 
 function History() {
-  const { state } = useEtherox();
+  const { state } = useEtherum();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
@@ -22,7 +22,7 @@ function History() {
     const t = setTimeout(() => {
       try {
         if (typeof window === "undefined") throw new Error("SSR");
-        window.localStorage.getItem("etherox_state_v1");
+        window.localStorage.getItem("etherum_state_v1");
         setLoading(false);
       } catch (e: any) {
         setError(`We couldn't load your transaction history. ${e?.message || "Unknown error"}. Please check your connection and try again.`);

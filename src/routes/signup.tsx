@@ -1,15 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Brand } from "@/components/etherox/Logo";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { Brand } from "@/components/etherum/Logo";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { Field, Divider, GoogleG } from "./signin";
 import { Mail, Lock, User as UserIcon, Eye, EyeOff, Gift, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { useEtherox } from "@/lib/wallet";
+import { useEtherum } from "@/lib/wallet";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Sign up — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Sign up — ETHERUM" }] }),
   component: SignUp,
 });
 
@@ -21,7 +21,7 @@ function SignUp() {
   const [ref, setRef] = useState("");
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { update } = useEtherox();
+  const { update } = useEtherum();
   const nav = useNavigate();
 
   async function submit(e: React.FormEvent) {
@@ -52,7 +52,7 @@ function SignUp() {
       <div className="mt-6 rounded-3xl border border-primary/25 bg-card/60 p-6 glow-soft">
         <div className="flex items-center gap-2">
           <Sparkles className="text-primary" size={22} />
-          <h1 className="text-2xl font-bold">Welcome to BETANO</h1>
+          <h1 className="text-2xl font-bold">Welcome to ETHERUM</h1>
         </div>
         <p className="text-muted-foreground mt-1">Create an account to get started</p>
 
@@ -80,7 +80,7 @@ function SignUp() {
           <label className="flex items-start gap-3 text-sm">
             <button type="button" onClick={() => setAgree(!agree)} className={`mt-0.5 size-5 rounded-full border-2 ${agree ? "bg-primary border-primary" : "border-primary/50"}`} />
             <span className="text-muted-foreground">
-              By continuing, you agree to BETANO's <span className="text-primary">Terms of Service</span> and <span className="text-primary">Privacy Policy</span>
+              By continuing, you agree to ETHERUM's <span className="text-primary">Terms of Service</span> and <span className="text-primary">Privacy Policy</span>
             </span>
           </label>
 

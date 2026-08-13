@@ -1,15 +1,15 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { User as UserIcon, LogOut, Shield, Gift, HelpCircle, MessagesSquare, ChevronRight, Sparkles } from "lucide-react";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 
 export const Route = createFileRoute("/profile")({
-  head: () => ({ meta: [{ title: "Profile — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Profile — ETHERUM" }] }),
   component: Profile,
 });
 
 function Profile() {
-  const { state, update, signOut } = useEtherox();
+  const { state, update, signOut } = useEtherum();
   const nav = useNavigate();
   return (
     <MobileFrame>
@@ -18,7 +18,7 @@ function Profile() {
           <UserIcon size={28} />
         </div>
         <div className="flex-1">
-          <div className="text-xl font-bold">{state.fullName || "BETANO user"}</div>
+          <div className="text-xl font-bold">{state.fullName || "ETHERUM user"}</div>
           <div className="text-sm text-muted-foreground">{state.email || "Not signed in"}</div>
         </div>
       </div>

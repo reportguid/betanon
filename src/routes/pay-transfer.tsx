@@ -1,12 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { ArrowLeft, AlertTriangle, Copy, Check, Timer, Upload, CheckCircle2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/pay-transfer")({
-  head: () => ({ meta: [{ title: "Pay with bank transfer — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Pay with bank transfer — ETHERUM" }] }),
   component: PayTransfer,
 });
 
@@ -95,7 +95,7 @@ function PayTransfer() {
         </Link>
         <div>
           <h1 className="text-xl font-bold">Pay with bank transfer</h1>
-          <p className="text-sm text-muted-foreground">Activate BETANO Token</p>
+          <p className="text-sm text-muted-foreground">Activate ETHERUM Token</p>
         </div>
       </header>
 

@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { Check, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/upgrade")({
-  head: () => ({ meta: [{ title: "Upgrade — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Upgrade — ETHERUM" }] }),
   component: Upgrade,
 });
 

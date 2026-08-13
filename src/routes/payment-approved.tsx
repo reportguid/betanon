@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { CheckCircle2, Copy, Share2, Sparkles, Wallet } from "lucide-react";
@@ -9,7 +9,7 @@ import { z } from "zod";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 
 export const Route = createFileRoute("/payment-approved")({
-  head: () => ({ meta: [{ title: "Payment Approved — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Payment Approved — ETHERUM" }] }),
   validateSearch: zodValidator(z.object({ payment: fallback(z.string(), "").default("") })),
   component: Page,
 });
@@ -32,7 +32,7 @@ function Page() {
     toast.success("FPC code copied");
   }
   function share() {
-    const text = `I just got approved on BETANO! My code: ${code}`;
+    const text = `I just got approved on ETHERUM! My code: ${code}`;
     if (typeof navigator !== "undefined" && navigator.share) navigator.share({ text }).catch(() => {});
     else { navigator.clipboard.writeText(text); toast.success("Shared text copied"); }
   }

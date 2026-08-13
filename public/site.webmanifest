@@ -1,0 +1,12 @@
+{
+  "name": "ETHERUM",
+  "short_name": "ETHERUM",
+  "description": "ETHERUM — a premium financial dashboard for referrals, membership and secure withdrawals.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0c12",
+  "theme_color": "#7c3aed",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

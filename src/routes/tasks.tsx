@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { Sparkles, Play, Users, Share2, Clock, X } from "lucide-react";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/tasks")({
-  head: () => ({ meta: [{ title: "Tasks — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Tasks — ETHERUM" }] }),
   component: Tasks,
 });
 
-const CLAIM_KEY = "betano_daily_claim";
+const CLAIM_KEY = "etherum_daily_claim";
 const AD_SECONDS = 15;
 const tasks = [
   { id: "tap", title: "Tap & Earn", desc: "Watch a short ad to claim your daily bonus", reward: 750, Icon: Sparkles, daily: true },
   { id: "invite", title: "Invite a friend", desc: "Earn when they sign up", reward: 2000, Icon: Users, daily: false },
-  { id: "share", title: "Share BETANO", desc: "Post on social media", reward: 300, Icon: Share2, daily: false },
+  { id: "share", title: "Share ETHERUM", desc: "Post on social media", reward: 300, Icon: Share2, daily: false },
 ] as const;
 
 function todayKey() {
@@ -29,7 +29,7 @@ function nextResetLabel() {
 }
 
 function Tasks() {
-  const { credit } = useEtherox();
+  const { credit } = useEtherum();
   const [claimedToday, setClaimedToday] = useState(false);
   const [adOpen, setAdOpen] = useState(false);
   const [remaining, setRemaining] = useState(AD_SECONDS);
