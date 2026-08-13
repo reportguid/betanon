@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
-import { StatusBadge } from "@/components/etherox/StatusBadge";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
+import { StatusBadge } from "@/components/etherum/StatusBadge";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, ArrowLeft, Info } from "lucide-react";
@@ -10,7 +10,7 @@ import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { useEffect } from "react";
 
 export const Route = createFileRoute("/payment-under-review")({
-  head: () => ({ meta: [{ title: "Payment Under Review — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Payment Under Review — ETHERUM" }] }),
   validateSearch: zodValidator(z.object({ id: fallback(z.string(), "").default("") })),
   component: Page,
 });

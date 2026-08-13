@@ -1,17 +1,17 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { Bell, User as UserIcon, ArrowUpRight, Sparkles, TrendingUp, Gift, HelpCircle, MessagesSquare, ShieldCheck, Lock, ArrowDownRight, X, ShieldCheck as Shield2, CheckCircle2, WifiOff, AlertTriangle } from "lucide-react";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 import { useEffect, useState } from "react";
-import { BalanceSkeleton, TileSkeleton, TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherox/Skeletons";
+import { BalanceSkeleton, TileSkeleton, TxnRowSkeleton, EmptyState, ErrorState } from "@/components/etherum/Skeletons";
 
 export const Route = createFileRoute("/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — ETHERUM" }] }),
   component: Dashboard,
 });
 
 function Dashboard() {
-  const { state, update, credit } = useEtherox();
+  const { state, update, credit } = useEtherum();
   const [showSurprise, setShowSurprise] = useState(false);
   const [reward, setReward] = useState(0);
   const [credited, setCredited] = useState(false);
@@ -40,7 +40,7 @@ function Dashboard() {
       try {
         if (typeof window === "undefined") throw new Error("SSR");
         // sanity check: wallet state must be readable
-        window.localStorage.getItem("etherox_state_v1");
+        window.localStorage.getItem("etherum_state_v1");
         setLoading(false);
       } catch (e: any) {
         const msg = e?.message || "Unknown error";
@@ -106,7 +106,7 @@ function Dashboard() {
         </div>
       ) : (
       <section className="mt-6 relative overflow-hidden rounded-[2rem] border border-primary/30 p-6 glow-soft ex-slide-up"
-        style={{ background: "linear-gradient(135deg, oklch(0.22 0.09 150 / 0.85) 0%, oklch(0.15 0.05 160 / 0.75) 55%, oklch(0.13 0.03 160 / 0.9) 100%)" }}>
+        style={{ background: "linear-gradient(135deg, oklch(0.22 0.09 290 / 0.85) 0%, oklch(0.15 0.05 265 / 0.75) 55%, oklch(0.13 0.03 265 / 0.9) 100%)" }}>
         <div className="absolute -top-16 -right-16 size-52 rounded-full bg-primary/20 blur-3xl pointer-events-none ex-pulse-glow" />
         <div className="absolute -bottom-20 -left-10 size-40 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
         <div className="relative flex items-center justify-between">
@@ -164,7 +164,7 @@ function Dashboard() {
           </div>
         ) : (
           <>
-            <Tile to="/buy-token" Icon={TrendingUp} label="Buy BETANO Token" size="lg" delay="ex-delay-1" featured />
+            <Tile to="/buy-token" Icon={TrendingUp} label="Buy ETHERUM Token" size="lg" delay="ex-delay-1" featured />
             <Tile to="/refer" Icon={Gift} label="Refer & Earn" size="lg" delay="ex-delay-2" />
             <Tile to="/faq" Icon={HelpCircle} label="FAQ" size="sm" delay="ex-delay-3" />
             <Tile to="/support" Icon={MessagesSquare} label="Support" size="sm" delay="ex-delay-4" />
@@ -178,7 +178,7 @@ function Dashboard() {
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-semibold text-sm flex items-center gap-1.5">Encrypted & Secure <Lock size={12} /></div>
-          <div className="text-[11px] text-muted-foreground leading-relaxed">256-bit SSL · PCI-DSS · BETANO Secure Vault</div>
+          <div className="text-[11px] text-muted-foreground leading-relaxed">256-bit SSL · PCI-DSS · ETHERUM Secure Vault</div>
         </div>
       </div>
 
@@ -294,7 +294,7 @@ function SurpriseModal({ reward, credited, closing, onClaim, onClose }: { reward
               </span>
             </div>
             <h3 className="text-center text-2xl font-bold mt-3">A bonus is waiting</h3>
-            <p className="text-center text-muted-foreground mt-2">You've unlocked a free reward. Tap claim to credit it to your BETANO wallet instantly.</p>
+            <p className="text-center text-muted-foreground mt-2">You've unlocked a free reward. Tap claim to credit it to your ETHERUM wallet instantly.</p>
 
             <div className="mt-5 rounded-2xl border border-border bg-background/50 px-5 py-6 text-center">
               <div className="text-xs tracking-widest text-muted-foreground">YOUR REWARD</div>
@@ -304,7 +304,7 @@ function SurpriseModal({ reward, credited, closing, onClaim, onClose }: { reward
 
             <div className="mt-4 rounded-2xl border border-border bg-background/40 px-4 py-3 flex items-start gap-3">
               <Shield2 size={18} className="text-primary mt-0.5" />
-              <p className="text-sm text-muted-foreground">100% safe. Bonus is credited from BETANO — no fees, no card details required.</p>
+              <p className="text-sm text-muted-foreground">100% safe. Bonus is credited from ETHERUM — no fees, no card details required.</p>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-3">

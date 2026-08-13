@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
-import { StatusBadge, WithdrawTimeline } from "@/components/etherox/StatusBadge";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
+import { StatusBadge, WithdrawTimeline } from "@/components/etherum/StatusBadge";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
@@ -9,7 +9,7 @@ import { z } from "zod";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 
 export const Route = createFileRoute("/withdrawal-success")({
-  head: () => ({ meta: [{ title: "Request Submitted — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Request Submitted — ETHERUM" }] }),
   validateSearch: zodValidator(z.object({ id: fallback(z.string(), "").default("") })),
   component: Page,
 });

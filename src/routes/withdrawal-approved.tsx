@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { CheckCircle2, Copy } from "lucide-react";
@@ -9,7 +9,7 @@ import { z } from "zod";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 
 export const Route = createFileRoute("/withdrawal-approved")({
-  head: () => ({ meta: [{ title: "Withdrawal Approved — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Withdrawal Approved — ETHERUM" }] }),
   validateSearch: zodValidator(z.object({ id: fallback(z.string(), "").default("") })),
   component: Page,
 });

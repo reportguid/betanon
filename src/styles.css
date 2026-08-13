@@ -63,33 +63,33 @@
 
 :root {
   --radius: 1rem;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --background: oklch(0.13 0.02 160);
-  --foreground: oklch(0.98 0.01 150);
-  --card: oklch(0.17 0.03 160 / 60%);
-  --card-foreground: oklch(0.98 0.01 150);
-  --popover: oklch(0.15 0.025 160);
-  --popover-foreground: oklch(0.98 0.01 150);
-  --primary: oklch(0.82 0.24 145);
-  --primary-foreground: oklch(0.12 0.04 160);
-  --primary-glow: oklch(0.88 0.26 145);
-  --secondary: oklch(0.22 0.04 160);
-  --secondary-foreground: oklch(0.98 0.01 150);
-  --muted: oklch(0.2 0.03 160);
-  --muted-foreground: oklch(0.7 0.03 150);
-  --accent: oklch(0.82 0.24 145);
-  --accent-foreground: oklch(0.12 0.04 160);
+  --background: oklch(0.115 0.012 275);
+  --foreground: oklch(0.96 0.005 285);
+  --card: oklch(0.19 0.03 268 / 62%);
+  --card-foreground: oklch(0.98 0.01 290);
+  --popover: oklch(0.17 0.028 268);
+  --popover-foreground: oklch(0.98 0.01 290);
+  --primary: oklch(0.62 0.25 292);
+  --primary-foreground: oklch(0.98 0.005 285);
+  --primary-glow: oklch(0.72 0.22 296);
+  --secondary: oklch(0.23 0.04 268);
+  --secondary-foreground: oklch(0.98 0.01 290);
+  --muted: oklch(0.22 0.03 268);
+  --muted-foreground: oklch(0.72 0.02 275);
+  --accent: oklch(0.82 0.13 205);
+  --accent-foreground: oklch(0.14 0.03 268);
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.82 0.24 145 / 18%);
-  --input: oklch(0.82 0.24 145 / 22%);
-  --ring: oklch(0.82 0.24 145 / 60%);
-  --glow: 0 0 60px oklch(0.82 0.24 145 / 45%);
-  --glow-soft: 0 0 40px oklch(0.82 0.24 145 / 25%);
-  --gradient-primary: linear-gradient(135deg, oklch(0.82 0.24 145), oklch(0.88 0.26 145));
-  --gradient-bg: radial-gradient(ellipse at top, oklch(0.2 0.08 150 / 0.6), transparent 60%), radial-gradient(ellipse at bottom, oklch(0.18 0.06 150 / 0.5), transparent 60%);
+  --border: oklch(0.75 0.06 275 / 16%);
+  --input: oklch(0.75 0.06 275 / 20%);
+  --ring: oklch(0.62 0.25 292 / 60%);
+  --glow: 0 0 48px oklch(0.62 0.25 292 / 40%);
+  --glow-soft: 0 0 32px oklch(0.62 0.25 292 / 22%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.62 0.25 292), oklch(0.82 0.13 205));
+  --gradient-bg: radial-gradient(ellipse at top, oklch(0.2 0.08 290 / 0.6), transparent 60%), radial-gradient(ellipse at bottom, oklch(0.18 0.06 290 / 0.5), transparent 60%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -176,19 +176,19 @@
 @layer utilities {
   .glow-primary { box-shadow: var(--glow); }
   .glow-soft { box-shadow: var(--glow-soft); }
-  .text-glow { text-shadow: 0 0 24px oklch(0.82 0.24 145 / 0.6); }
+  .text-glow { text-shadow: 0 0 24px oklch(0.82 0.24 295 / 0.6); }
   .bg-grid {
     background-image:
-      radial-gradient(circle at 20% 20%, oklch(0.82 0.24 145 / 0.15), transparent 35%),
-      radial-gradient(circle at 80% 60%, oklch(0.82 0.24 145 / 0.12), transparent 40%),
-      radial-gradient(circle at 50% 90%, oklch(0.82 0.24 145 / 0.1), transparent 45%);
+      radial-gradient(circle at 20% 20%, oklch(0.82 0.24 295 / 0.15), transparent 35%),
+      radial-gradient(circle at 80% 60%, oklch(0.82 0.24 295 / 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, oklch(0.82 0.24 295 / 0.1), transparent 45%);
   }
 }
 
 @layer utilities {
   @keyframes ex-fade-up { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
   @keyframes ex-pop { 0% { opacity: 0; transform: scale(.85); } 60% { transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
-  @keyframes ex-pulse-glow { 0%,100% { box-shadow: 0 0 0 0 oklch(0.82 0.24 145 / .55); } 50% { box-shadow: 0 0 0 18px oklch(0.82 0.24 145 / 0); } }
+  @keyframes ex-pulse-glow { 0%,100% { box-shadow: 0 0 0 0 oklch(0.82 0.24 295 / .55); } 50% { box-shadow: 0 0 0 18px oklch(0.82 0.24 295 / 0); } }
   @keyframes ex-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
   @keyframes ex-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   @keyframes ex-spin-slow { to { transform: rotate(360deg); } }
@@ -210,7 +210,7 @@
   .ex-float { animation: ex-float 3s ease-in-out infinite; }
   .ex-spin-slow { animation: ex-spin-slow 14s linear infinite; }
   .ex-shimmer {
-    background: linear-gradient(90deg, transparent, oklch(0.82 0.24 145 / .25), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.82 0.24 295 / .25), transparent);
     background-size: 200% 100%;
     animation: ex-shimmer 2.4s linear infinite;
   }
@@ -232,7 +232,7 @@
     animation-name: ex-money-rise;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    text-shadow: 0 0 12px oklch(0.82 0.24 145 / .5);
+    text-shadow: 0 0 12px oklch(0.82 0.24 295 / .5);
     will-change: transform, opacity;
   }
   @keyframes ex-particle-drift {
@@ -244,8 +244,8 @@
   .ex-particle {
     position: absolute;
     border-radius: 9999px;
-    background: radial-gradient(circle, oklch(0.9 0.26 145 / .9) 0%, oklch(0.82 0.24 145 / .35) 45%, transparent 70%);
-    box-shadow: 0 0 12px oklch(0.82 0.24 145 / .7);
+    background: radial-gradient(circle, oklch(0.9 0.26 295 / .9) 0%, oklch(0.82 0.24 295 / .35) 45%, transparent 70%);
+    box-shadow: 0 0 12px oklch(0.82 0.24 295 / .7);
     animation: ex-particle-drift linear infinite;
     will-change: transform, opacity;
   }
@@ -257,7 +257,7 @@
     position: absolute;
     border-radius: 9999px;
     filter: blur(40px);
-    background: radial-gradient(circle, oklch(0.82 0.24 145 / .55), transparent 70%);
+    background: radial-gradient(circle, oklch(0.82 0.24 295 / .55), transparent 70%);
     animation: ex-bokeh ease-in-out infinite;
     will-change: opacity, transform;
   }
@@ -277,11 +277,11 @@
     position: absolute;
     animation: ex-shape-float linear infinite;
     will-change: transform, opacity;
-    filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .55));
+    filter: drop-shadow(0 0 6px oklch(0.82 0.24 295 / .55));
   }
-  .ex-shape-sq  { border: 1.5px solid oklch(0.85 0.24 145 / .75); border-radius: 4px; background: oklch(0.82 0.24 145 / .06); }
-  .ex-shape-ring{ border: 1.5px solid oklch(0.85 0.24 145 / .7); border-radius: 9999px; }
-  .ex-shape-tri { width: 0 !important; height: 0 !important; border-left: var(--tri,10px) solid transparent; border-right: var(--tri,10px) solid transparent; border-bottom: calc(var(--tri,10px) * 1.7) solid oklch(0.85 0.24 145 / .55); background: transparent; filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .6)); }
+  .ex-shape-sq  { border: 1.5px solid oklch(0.85 0.24 295 / .75); border-radius: 4px; background: oklch(0.82 0.24 295 / .06); }
+  .ex-shape-ring{ border: 1.5px solid oklch(0.85 0.24 295 / .7); border-radius: 9999px; }
+  .ex-shape-tri { width: 0 !important; height: 0 !important; border-left: var(--tri,10px) solid transparent; border-right: var(--tri,10px) solid transparent; border-bottom: calc(var(--tri,10px) * 1.7) solid oklch(0.85 0.24 295 / .55); background: transparent; filter: drop-shadow(0 0 6px oklch(0.82 0.24 295 / .6)); }
   .reduce-motion .ex-money,
   .reduce-motion .ex-particle,
   .reduce-motion .ex-bokeh,
@@ -289,7 +289,7 @@
   .reduce-motion .ex-graph-line,
   .reduce-motion .ex-wave,
   .reduce-motion .ex-net { animation: none !important; }
-  @keyframes ex-nav-glow { 0%,100% { filter: drop-shadow(0 0 6px oklch(0.82 0.24 145 / .8)); } 50% { filter: drop-shadow(0 0 12px oklch(0.82 0.24 145 / 1)); } }
+  @keyframes ex-nav-glow { 0%,100% { filter: drop-shadow(0 0 6px oklch(0.82 0.24 295 / .8)); } 50% { filter: drop-shadow(0 0 12px oklch(0.82 0.24 295 / 1)); } }
   .ex-nav-active-glow { animation: ex-nav-glow 2.4s ease-in-out infinite; }
   @keyframes ex-skeleton {
     0% { background-position: -200% 0; }
@@ -297,9 +297,9 @@
   }
   .ex-skeleton {
     background: linear-gradient(90deg,
-      oklch(0.22 0.04 160 / .5) 0%,
-      oklch(0.35 0.08 150 / .55) 50%,
-      oklch(0.22 0.04 160 / .5) 100%);
+      oklch(0.22 0.04 265 / .5) 0%,
+      oklch(0.35 0.08 290 / .55) 50%,
+      oklch(0.22 0.04 265 / .5) 100%);
     background-size: 200% 100%;
     animation: ex-skeleton 1.6s ease-in-out infinite;
     border-radius: 0.75rem;

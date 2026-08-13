@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="ETHERUM">
+  <defs>
+    <linearGradient id="g" x1="6" y1="2" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a06bff"/>
+      <stop offset="1" stop-color="#4fd8e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="11" fill="#14121c"/>
+  <g transform="translate(24 24) scale(0.78) translate(-24 -24)">
+    <path d="M24 2 L34 12 H14 Z" fill="url(#g)"/>
+    <path d="M12 15 H38 L33 23 H12 Z" fill="url(#g)"/>
+    <path d="M12 26 H30 L26 33 H12 Z" fill="url(#g)" opacity=".8"/>
+    <path d="M12 36 H36 L31 44 H12 Z" fill="url(#g)" opacity=".92"/>
+    <path d="M6 12 L12 15 V44 L6 40 Z" fill="url(#g)" opacity=".55"/>
+  </g>
+</svg>

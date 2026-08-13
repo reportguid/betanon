@@ -1,18 +1,18 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { ArrowLeft, Gift, Sparkles, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 
 const BONUS = 50000;
 
 export const Route = createFileRoute("/welcome-bonus")({
-  head: () => ({ meta: [{ title: "Welcome bonus — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Welcome bonus — ETHERUM" }] }),
   component: WelcomeBonus,
 });
 
 function WelcomeBonus() {
-  const { state, update, credit } = useEtherox();
+  const { state, update, credit } = useEtherum();
   const [credited, setCredited] = useState(state.welcomeClaimed);
   const nav = useNavigate();
 
@@ -50,7 +50,7 @@ function WelcomeBonus() {
             </div>
             <h2 className="text-3xl font-bold text-center mt-4">{formatNaira(BONUS)} is waiting</h2>
             <p className="text-center text-muted-foreground mt-4 leading-relaxed">
-              Tap the button below to credit your welcome bonus to your BETANO wallet. You must claim to continue.
+              Tap the button below to credit your welcome bonus to your ETHERUM wallet. You must claim to continue.
             </p>
             <div className="mt-6 rounded-2xl border border-border bg-background/40 p-4 flex items-center gap-3">
               <Gift size={28} className="text-primary" />
@@ -63,7 +63,7 @@ function WelcomeBonus() {
             <button onClick={claim} className="mt-6 w-full rounded-full bg-primary text-primary-foreground font-bold py-4 glow-primary">
               Claim {formatNaira(BONUS)}
             </button>
-            <p className="text-center text-xs text-muted-foreground mt-3">You must claim your welcome bonus to continue using BETANO.</p>
+            <p className="text-center text-xs text-muted-foreground mt-3">You must claim your welcome bonus to continue using ETHERUM.</p>
           </>
         ) : (
           <>
@@ -75,7 +75,7 @@ function WelcomeBonus() {
             <h2 className="text-3xl font-bold text-center">Bonus credited</h2>
             <p className="text-center text-muted-foreground mt-3">{formatNaira(BONUS)} has been added to your balance.</p>
             <button onClick={() => nav({ to: "/dashboard" })} className="mt-8 w-full rounded-full bg-primary text-primary-foreground font-bold py-4 glow-primary">
-              Continue to BETANO
+              Continue to ETHERUM
             </button>
           </>
         )}

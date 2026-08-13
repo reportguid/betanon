@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 
-const KEY = "etherox_state_v1";
+const KEY = "etherum_state_v1";
 
 export type Txn = {
   id: string;
@@ -10,7 +10,7 @@ export type Txn = {
   kind: "credit" | "debit";
 };
 
-export type EtheroxState = {
+export type EtherumState = {
   signedIn: boolean;
   fullName: string;
   email: string;
@@ -21,7 +21,7 @@ export type EtheroxState = {
   reduceMotion: boolean;
 };
 
-const initial: EtheroxState = {
+const initial: EtherumState = {
   signedIn: false,
   fullName: "",
   email: "",
@@ -32,7 +32,7 @@ const initial: EtheroxState = {
   reduceMotion: false,
 };
 
-function read(): EtheroxState {
+function read(): EtherumState {
   if (typeof window === "undefined") return initial;
   try {
     const raw = localStorage.getItem(KEY);
@@ -42,26 +42,26 @@ function read(): EtheroxState {
   }
 }
 
-function write(s: EtheroxState) {
+function write(s: EtherumState) {
   if (typeof window === "undefined") return;
   localStorage.setItem(KEY, JSON.stringify(s));
-  window.dispatchEvent(new CustomEvent("etherox-state"));
+  window.dispatchEvent(new CustomEvent("etherum-state"));
 }
 
-export function useEtherox() {
-  const [state, setState] = useState<EtheroxState>(initial);
+export function useEtherum() {
+  const [state, setState] = useState<EtherumState>(initial);
   useEffect(() => {
     setState(read());
     const h = () => setState(read());
-    window.addEventListener("etherox-state", h);
+    window.addEventListener("etherum-state", h);
     window.addEventListener("storage", h);
     return () => {
-      window.removeEventListener("etherox-state", h);
+      window.removeEventListener("etherum-state", h);
       window.removeEventListener("storage", h);
     };
   }, []);
 
-  const update = useCallback((patch: Partial<EtheroxState> | ((s: EtheroxState) => EtheroxState)) => {
+  const update = useCallback((patch: Partial<EtherumState> | ((s: EtherumState) => EtherumState)) => {
     const cur = read();
     const next = typeof patch === "function" ? patch(cur) : { ...cur, ...patch };
     write(next);

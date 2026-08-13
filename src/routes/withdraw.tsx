@@ -1,19 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { ArrowLeft, ShieldAlert, Lock, ArrowUpRight, Copy, CheckCircle2 } from "lucide-react";
-import { useEtherox, formatNaira } from "@/lib/wallet";
+import { useEtherum, formatNaira } from "@/lib/wallet";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/withdraw")({
-  head: () => ({ meta: [{ title: "Withdraw — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Withdraw — ETHERUM" }] }),
   component: Withdraw,
 });
 
 function Withdraw() {
-  const { state } = useEtherox();
+  const { state } = useEtherum();
   const [uid, setUid] = useState<string | null>(null);
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => setUid(data.user?.id ?? null));
@@ -115,7 +115,7 @@ function Withdraw() {
         </ul>
 
         <Link to="/buy-token" className="mt-6 w-full rounded-full bg-primary text-primary-foreground font-bold py-4 flex items-center justify-center gap-2 glow-primary ex-pulse-glow transition hover:scale-[1.02]">
-          <ArrowUpRight size={18} /> Buy BETANO Token
+          <ArrowUpRight size={18} /> Buy ETHERUM Token
         </Link>
         <p className="text-center text-xs text-muted-foreground mt-3">Your balance is safe and will remain available after upgrade.</p>
       </div>

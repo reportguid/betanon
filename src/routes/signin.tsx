@@ -1,14 +1,14 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Brand } from "@/components/etherox/Logo";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { Brand } from "@/components/etherum/Logo";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-import { useEtherox } from "@/lib/wallet";
+import { useEtherum } from "@/lib/wallet";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signin")({
-  head: () => ({ meta: [{ title: "Sign in — BETANO" }] }),
+  head: () => ({ meta: [{ title: "Sign in — ETHERUM" }] }),
   component: SignIn,
 });
 
@@ -17,7 +17,7 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [loading, setLoading] = useState(false);
-  const { update, state } = useEtherox();
+  const { update, state } = useEtherum();
   const nav = useNavigate();
 
   async function submit(e: React.FormEvent) {

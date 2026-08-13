@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { Brand } from "@/components/etherox/Logo";
-import { MobileFrame } from "@/components/etherox/MobileFrame";
+import { Brand } from "@/components/etherum/Logo";
+import { MobileFrame } from "@/components/etherum/MobileFrame";
 import { ArrowRight, Shield, Zap, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "BETANO — Money moves, made simple" },
-      { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
-      { property: "og:title", content: "BETANO — Money moves, made simple" },
-      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
+      { title: "ETHERUM — Money moves, made simple" },
+      { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure ETHERUM account." },
+      { property: "og:title", content: "ETHERUM — Money moves, made simple" },
+      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure ETHERUM account." },
     ],
   }),
   component: Index,
@@ -36,7 +36,7 @@ function Index() {
         </h1>
 
         <p className="mt-6 text-muted-foreground leading-relaxed">
-          Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account.
+          Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure ETHERUM account.
         </p>
 
         <Link

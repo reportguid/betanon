@@ -13,9 +13,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster as SonnerToaster } from "sonner";
-import { useEtherox } from "@/lib/wallet";
-import { BottomNav } from "@/components/etherox/BottomNav";
-import { CurrencyBackdrop } from "@/components/etherox/CurrencyBackdrop";
+import { useEtherum } from "@/lib/wallet";
+import { BottomNav } from "@/components/etherum/BottomNav";
+import { CurrencyBackdrop } from "@/components/etherum/CurrencyBackdrop";
 
 function NotFoundComponent() {
   return (
@@ -82,16 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BETANO — Money moves, made simple" },
-      { name: "description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "BETANO — Money moves, made simple" },
-      { property: "og:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
+      { title: "ETHERUM — Premium financial dashboard" },
+      { name: "description", content: "Track referrals, ETHERUM Premium Membership and secure bank withdrawals from one clean, professional financial dashboard." },
+      { name: "author", content: "ETHERUM" },
+      { name: "theme-color", content: "#7c3aed" },
+      { name: "apple-mobile-web-app-title", content: "ETHERUM" },
+      { property: "og:title", content: "ETHERUM — Premium financial dashboard" },
+      { property: "og:description", content: "Track referrals, ETHERUM Premium Membership and secure bank withdrawals from one clean, professional financial dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "BETANO — Money moves, made simple" },
-      { name: "twitter:description", content: "Earn online with daily tasks & referrals, then withdraw straight to any bank — all in one secure BETANO account." },
+      { name: "twitter:title", content: "ETHERUM — Premium financial dashboard" },
+      { name: "twitter:description", content: "Track referrals, ETHERUM Premium Membership and secure bank withdrawals from one clean, professional financial dashboard." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/532302a0-0c73-4645-b716-73c95eb5972e" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/532302a0-0c73-4645-b716-73c95eb5972e" },
     ],
@@ -104,9 +106,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/favicon.svg" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
   shellComponent: RootShell,
@@ -132,7 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const { state } = useEtherox();
+  const { state } = useEtherum();
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.documentElement.classList.toggle("reduce-motion", !!state.reduceMotion);
