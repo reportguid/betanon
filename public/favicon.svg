@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="ETHERUM">
   <defs>
     <linearGradient id="g" x1="6" y1="2" x2="42" y2="46" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#a06bff"/>
-      <stop offset="1" stop-color="#4fd8e8"/>
+      <stop offset="0" stop-color="#20c96b"/>
+      <stop offset="1" stop-color="#8df56e"/>
     </linearGradient>
   </defs>
   <rect width="48" height="48" rx="11" fill="#14121c"/>

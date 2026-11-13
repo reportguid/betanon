@@ -3,8 +3,8 @@ type Variant = "dark" | "light" | "mono";
 function palette(variant: Variant) {
   if (variant === "mono") return { a: "currentColor", b: "currentColor", text: "currentColor" };
   if (variant === "light")
-    return { a: "oklch(0.52 0.26 292)", b: "oklch(0.62 0.14 205)", text: "oklch(0.22 0.02 275)" };
-  return { a: "oklch(0.68 0.25 292)", b: "oklch(0.84 0.13 205)", text: "oklch(0.97 0.005 285)" };
+    return { a: "oklch(0.52 0.20 145)", b: "oklch(0.72 0.20 145)", text: "oklch(0.22 0.02 145)" };
+  return { a: "oklch(0.68 0.22 145)", b: "oklch(0.84 0.20 145)", text: "oklch(0.97 0.005 145)" };
 }
 
 /**
@@ -91,7 +91,7 @@ export function EtherumAppIcon({ size = 48, radius = 12 }: { size?: number; radi
         width: size,
         height: size,
         borderRadius: radius,
-        background: "linear-gradient(145deg, oklch(0.17 0.03 275), oklch(0.12 0.02 275))",
+        background: "linear-gradient(145deg, oklch(0.17 0.03 145), oklch(0.12 0.02 145))",
       }}
       aria-label="ETHERUM"
     >
