@@ -7,6 +7,7 @@ import {
   useRouterState,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -39,7 +40,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -85,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ETHERUM — Premium financial dashboard" },
       { name: "description", content: "Track referrals, ETHERUM Premium Membership and secure bank withdrawals from one clean, professional financial dashboard." },
       { name: "author", content: "ETHERUM" },
-      { name: "theme-color", content: "#7c3aed" },
+      { name: "theme-color", content: "#20c96b" },
       { name: "apple-mobile-web-app-title", content: "ETHERUM" },
       { property: "og:title", content: "ETHERUM — Premium financial dashboard" },
       { property: "og:description", content: "Track referrals, ETHERUM Premium Membership and secure bank withdrawals from one clean, professional financial dashboard." },
