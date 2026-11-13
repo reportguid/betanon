@@ -9,139 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WithdrawalSuccessRouteImport } from './routes/withdrawal-success'
-import { Route as WithdrawalCompletedRouteImport } from './routes/withdrawal-completed'
-import { Route as WithdrawalApprovedRouteImport } from './routes/withdrawal-approved'
-import { Route as WithdrawRouteImport } from './routes/withdraw'
-import { Route as WelcomeBonusRouteImport } from './routes/welcome-bonus'
-import { Route as UpgradeRouteImport } from './routes/upgrade'
-import { Route as TasksRouteImport } from './routes/tasks'
-import { Route as SupportRouteImport } from './routes/support'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as SigninRouteImport } from './routes/signin'
-import { Route as ReferRouteImport } from './routes/refer'
-import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as PaymentUnderReviewRouteImport } from './routes/payment-under-review'
-import { Route as PaymentReviewRouteImport } from './routes/payment-review'
-import { Route as PaymentApprovedRouteImport } from './routes/payment-approved'
-import { Route as PayTransferRouteImport } from './routes/pay-transfer'
-import { Route as HistoryRouteImport } from './routes/history'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as BuyTokenRouteImport } from './routes/buy-token'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as BuyTokenRouteImport } from './routes/buy-token'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as PayTransferRouteImport } from './routes/pay-transfer'
+import { Route as PaymentApprovedRouteImport } from './routes/payment-approved'
+import { Route as PaymentReviewRouteImport } from './routes/payment-review'
+import { Route as PaymentUnderReviewRouteImport } from './routes/payment-under-review'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReferRouteImport } from './routes/refer'
+import { Route as SigninRouteImport } from './routes/signin'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as UpgradeRouteImport } from './routes/upgrade'
+import { Route as WelcomeBonusRouteImport } from './routes/welcome-bonus'
+import { Route as WithdrawRouteImport } from './routes/withdraw'
+import { Route as WithdrawalApprovedRouteImport } from './routes/withdrawal-approved'
+import { Route as WithdrawalCompletedRouteImport } from './routes/withdrawal-completed'
+import { Route as WithdrawalSuccessRouteImport } from './routes/withdrawal-success'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as AdminWithdrawalsRouteImport } from './routes/admin.withdrawals'
-import { Route as AdminUsersRouteImport } from './routes/admin.users'
-import { Route as AdminTransactionsRouteImport } from './routes/admin.transactions'
-import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
-import { Route as AdminReferralsRouteImport } from './routes/admin.referrals'
-import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as AdminKycRouteImport } from './routes/admin.kyc'
-import { Route as AdminDepositsRouteImport } from './routes/admin.deposits'
-import { Route as AdminBannersRouteImport } from './routes/admin.banners'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminBannersRouteImport } from './routes/admin.banners'
+import { Route as AdminDepositsRouteImport } from './routes/admin.deposits'
+import { Route as AdminKycRouteImport } from './routes/admin.kyc'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminReferralsRouteImport } from './routes/admin.referrals'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminTransactionsRouteImport } from './routes/admin.transactions'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminWithdrawalsRouteImport } from './routes/admin.withdrawals'
 
-const WithdrawalSuccessRoute = WithdrawalSuccessRouteImport.update({
-  id: '/withdrawal-success',
-  path: '/withdrawal-success',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WithdrawalCompletedRoute = WithdrawalCompletedRouteImport.update({
-  id: '/withdrawal-completed',
-  path: '/withdrawal-completed',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WithdrawalApprovedRoute = WithdrawalApprovedRouteImport.update({
-  id: '/withdrawal-approved',
-  path: '/withdrawal-approved',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WithdrawRoute = WithdrawRouteImport.update({
-  id: '/withdraw',
-  path: '/withdraw',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WelcomeBonusRoute = WelcomeBonusRouteImport.update({
-  id: '/welcome-bonus',
-  path: '/welcome-bonus',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const UpgradeRoute = UpgradeRouteImport.update({
-  id: '/upgrade',
-  path: '/upgrade',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TasksRoute = TasksRouteImport.update({
-  id: '/tasks',
-  path: '/tasks',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SupportRoute = SupportRouteImport.update({
-  id: '/support',
-  path: '/support',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SigninRoute = SigninRouteImport.update({
-  id: '/signin',
-  path: '/signin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferRoute = ReferRouteImport.update({
-  id: '/refer',
-  path: '/refer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaymentUnderReviewRoute = PaymentUnderReviewRouteImport.update({
-  id: '/payment-under-review',
-  path: '/payment-under-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaymentReviewRoute = PaymentReviewRouteImport.update({
-  id: '/payment-review',
-  path: '/payment-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaymentApprovedRoute = PaymentApprovedRouteImport.update({
-  id: '/payment-approved',
-  path: '/payment-approved',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PayTransferRoute = PayTransferRouteImport.update({
-  id: '/pay-transfer',
-  path: '/pay-transfer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HistoryRoute = HistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BuyTokenRoute = BuyTokenRouteImport.update({
-  id: '/buy-token',
-  path: '/buy-token',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -149,9 +54,104 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BuyTokenRoute = BuyTokenRouteImport.update({
+  id: '/buy-token',
+  path: '/buy-token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PayTransferRoute = PayTransferRouteImport.update({
+  id: '/pay-transfer',
+  path: '/pay-transfer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentApprovedRoute = PaymentApprovedRouteImport.update({
+  id: '/payment-approved',
+  path: '/payment-approved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentReviewRoute = PaymentReviewRouteImport.update({
+  id: '/payment-review',
+  path: '/payment-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentUnderReviewRoute = PaymentUnderReviewRouteImport.update({
+  id: '/payment-under-review',
+  path: '/payment-under-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferRoute = ReferRouteImport.update({
+  id: '/refer',
+  path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpgradeRoute = UpgradeRouteImport.update({
+  id: '/upgrade',
+  path: '/upgrade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeBonusRoute = WelcomeBonusRouteImport.update({
+  id: '/welcome-bonus',
+  path: '/welcome-bonus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawRoute = WithdrawRouteImport.update({
+  id: '/withdraw',
+  path: '/withdraw',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawalApprovedRoute = WithdrawalApprovedRouteImport.update({
+  id: '/withdrawal-approved',
+  path: '/withdrawal-approved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawalCompletedRoute = WithdrawalCompletedRouteImport.update({
+  id: '/withdrawal-completed',
+  path: '/withdrawal-completed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WithdrawalSuccessRoute = WithdrawalSuccessRouteImport.update({
+  id: '/withdrawal-success',
+  path: '/withdrawal-success',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -159,49 +159,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminWithdrawalsRoute = AdminWithdrawalsRouteImport.update({
-  id: '/withdrawals',
-  path: '/withdrawals',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
-  id: '/users',
-  path: '/users',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
-  id: '/transactions',
-  path: '/transactions',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminSettingsRoute = AdminSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminReferralsRoute = AdminReferralsRouteImport.update({
-  id: '/referrals',
-  path: '/referrals',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
-  id: '/notifications',
-  path: '/notifications',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminKycRoute = AdminKycRouteImport.update({
-  id: '/kyc',
-  path: '/kyc',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminDepositsRoute = AdminDepositsRouteImport.update({
-  id: '/deposits',
-  path: '/deposits',
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminBannersRoute = AdminBannersRouteImport.update({
@@ -209,9 +169,49 @@ const AdminBannersRoute = AdminBannersRouteImport.update({
   path: '/banners',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
+const AdminDepositsRoute = AdminDepositsRouteImport.update({
+  id: '/deposits',
+  path: '/deposits',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminKycRoute = AdminKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReferralsRoute = AdminReferralsRouteImport.update({
+  id: '/referrals',
+  path: '/referrals',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminWithdrawalsRoute = AdminWithdrawalsRouteImport.update({
+  id: '/withdrawals',
+  path: '/withdrawals',
   getParentRoute: () => AdminRoute,
 } as any)
 
@@ -460,144 +460,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/withdrawal-success': {
-      id: '/withdrawal-success'
-      path: '/withdrawal-success'
-      fullPath: '/withdrawal-success'
-      preLoaderRoute: typeof WithdrawalSuccessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/withdrawal-completed': {
-      id: '/withdrawal-completed'
-      path: '/withdrawal-completed'
-      fullPath: '/withdrawal-completed'
-      preLoaderRoute: typeof WithdrawalCompletedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/withdrawal-approved': {
-      id: '/withdrawal-approved'
-      path: '/withdrawal-approved'
-      fullPath: '/withdrawal-approved'
-      preLoaderRoute: typeof WithdrawalApprovedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/withdraw': {
-      id: '/withdraw'
-      path: '/withdraw'
-      fullPath: '/withdraw'
-      preLoaderRoute: typeof WithdrawRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/welcome-bonus': {
-      id: '/welcome-bonus'
-      path: '/welcome-bonus'
-      fullPath: '/welcome-bonus'
-      preLoaderRoute: typeof WelcomeBonusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/upgrade': {
-      id: '/upgrade'
-      path: '/upgrade'
-      fullPath: '/upgrade'
-      preLoaderRoute: typeof UpgradeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tasks': {
-      id: '/tasks'
-      path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: typeof TasksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/support': {
-      id: '/support'
-      path: '/support'
-      fullPath: '/support'
-      preLoaderRoute: typeof SupportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signin': {
-      id: '/signin'
-      path: '/signin'
-      fullPath: '/signin'
-      preLoaderRoute: typeof SigninRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/refer': {
-      id: '/refer'
-      path: '/refer'
-      fullPath: '/refer'
-      preLoaderRoute: typeof ReferRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/payment-under-review': {
-      id: '/payment-under-review'
-      path: '/payment-under-review'
-      fullPath: '/payment-under-review'
-      preLoaderRoute: typeof PaymentUnderReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/payment-review': {
-      id: '/payment-review'
-      path: '/payment-review'
-      fullPath: '/payment-review'
-      preLoaderRoute: typeof PaymentReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/payment-approved': {
-      id: '/payment-approved'
-      path: '/payment-approved'
-      fullPath: '/payment-approved'
-      preLoaderRoute: typeof PaymentApprovedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pay-transfer': {
-      id: '/pay-transfer'
-      path: '/pay-transfer'
-      fullPath: '/pay-transfer'
-      preLoaderRoute: typeof PayTransferRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/history': {
-      id: '/history'
-      path: '/history'
-      fullPath: '/history'
-      preLoaderRoute: typeof HistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/buy-token': {
-      id: '/buy-token'
-      path: '/buy-token'
-      fullPath: '/buy-token'
-      preLoaderRoute: typeof BuyTokenRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -607,11 +474,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/buy-token': {
+      id: '/buy-token'
+      path: '/buy-token'
+      fullPath: '/buy-token'
+      preLoaderRoute: typeof BuyTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pay-transfer': {
+      id: '/pay-transfer'
+      path: '/pay-transfer'
+      fullPath: '/pay-transfer'
+      preLoaderRoute: typeof PayTransferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-approved': {
+      id: '/payment-approved'
+      path: '/payment-approved'
+      fullPath: '/payment-approved'
+      preLoaderRoute: typeof PaymentApprovedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-review': {
+      id: '/payment-review'
+      path: '/payment-review'
+      fullPath: '/payment-review'
+      preLoaderRoute: typeof PaymentReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment-under-review': {
+      id: '/payment-under-review'
+      path: '/payment-under-review'
+      fullPath: '/payment-under-review'
+      preLoaderRoute: typeof PaymentUnderReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refer': {
+      id: '/refer'
+      path: '/refer'
+      fullPath: '/refer'
+      preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upgrade': {
+      id: '/upgrade'
+      path: '/upgrade'
+      fullPath: '/upgrade'
+      preLoaderRoute: typeof UpgradeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome-bonus': {
+      id: '/welcome-bonus'
+      path: '/welcome-bonus'
+      fullPath: '/welcome-bonus'
+      preLoaderRoute: typeof WelcomeBonusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdraw': {
+      id: '/withdraw'
+      path: '/withdraw'
+      fullPath: '/withdraw'
+      preLoaderRoute: typeof WithdrawRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdrawal-approved': {
+      id: '/withdrawal-approved'
+      path: '/withdrawal-approved'
+      fullPath: '/withdrawal-approved'
+      preLoaderRoute: typeof WithdrawalApprovedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdrawal-completed': {
+      id: '/withdrawal-completed'
+      path: '/withdrawal-completed'
+      fullPath: '/withdrawal-completed'
+      preLoaderRoute: typeof WithdrawalCompletedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/withdrawal-success': {
+      id: '/withdrawal-success'
+      path: '/withdrawal-success'
+      fullPath: '/withdrawal-success'
+      preLoaderRoute: typeof WithdrawalSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -621,67 +621,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/withdrawals': {
-      id: '/admin/withdrawals'
-      path: '/withdrawals'
-      fullPath: '/admin/withdrawals'
-      preLoaderRoute: typeof AdminWithdrawalsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/users': {
-      id: '/admin/users'
-      path: '/users'
-      fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/transactions': {
-      id: '/admin/transactions'
-      path: '/transactions'
-      fullPath: '/admin/transactions'
-      preLoaderRoute: typeof AdminTransactionsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/settings': {
-      id: '/admin/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminSettingsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/referrals': {
-      id: '/admin/referrals'
-      path: '/referrals'
-      fullPath: '/admin/referrals'
-      preLoaderRoute: typeof AdminReferralsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/notifications': {
-      id: '/admin/notifications'
-      path: '/notifications'
-      fullPath: '/admin/notifications'
-      preLoaderRoute: typeof AdminNotificationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/kyc': {
-      id: '/admin/kyc'
-      path: '/kyc'
-      fullPath: '/admin/kyc'
-      preLoaderRoute: typeof AdminKycRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/deposits': {
-      id: '/admin/deposits'
-      path: '/deposits'
-      fullPath: '/admin/deposits'
-      preLoaderRoute: typeof AdminDepositsRouteImport
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/banners': {
@@ -691,11 +635,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBannersRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/analytics': {
-      id: '/admin/analytics'
-      path: '/analytics'
-      fullPath: '/admin/analytics'
-      preLoaderRoute: typeof AdminAnalyticsRouteImport
+    '/admin/deposits': {
+      id: '/admin/deposits'
+      path: '/deposits'
+      fullPath: '/admin/deposits'
+      preLoaderRoute: typeof AdminDepositsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kyc': {
+      id: '/admin/kyc'
+      path: '/kyc'
+      fullPath: '/admin/kyc'
+      preLoaderRoute: typeof AdminKycRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/referrals': {
+      id: '/admin/referrals'
+      path: '/referrals'
+      fullPath: '/admin/referrals'
+      preLoaderRoute: typeof AdminReferralsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/transactions': {
+      id: '/admin/transactions'
+      path: '/transactions'
+      fullPath: '/admin/transactions'
+      preLoaderRoute: typeof AdminTransactionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/withdrawals': {
+      id: '/admin/withdrawals'
+      path: '/withdrawals'
+      fullPath: '/admin/withdrawals'
+      preLoaderRoute: typeof AdminWithdrawalsRouteImport
       parentRoute: typeof AdminRoute
     }
   }
